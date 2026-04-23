@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danny Symon | Creative Graphic Designer</title>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)'], ['$$', '$$'], ['\\[', '\\]']], 
+                displayMath: []
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-coral: #FF6B6B;
+            --color-teal: #4ECDC4;
+            --color-navy: #1A1A2E;
+            --color-cream: #F7F7F2;
+            --color-mustard: #FFE66D;
+            --color-lavender: #E0D4FC;
+            --color-charcoal: #2D2D2D;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+            color: var(--color-navy);
+            overflow-x: hidden;
+            background: var(--color-cream);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-v2 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .hero-v2::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: var(--color-coral);
+            transform: rotate(-15deg);
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero-content-v2 {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text-v2 h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            color: white;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            letter-spacing: -3px;
+        }
+
+        .hero-text-v2 .tagline {
+            font-size: 1.5rem;
+            color: var(--color-teal);
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-text-v2 p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .hero-image-v2 {
+            position: relative;
+        }
+
+        .hero-image-v2 img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            border-radius: 200px 200px 20px 20px;
+            border: 8px solid var(--color-teal);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-image-v2:hover img {
+            transform: rotate(-3deg) scale(1.05);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--color-mustard);
+            color: var(--color-navy);
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: rotate(5deg);
+        }
+
+        /* ========== SECTION STYLES ========== */
+        section {
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 70px;
+        }
+
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 900;
+            opacity: 0.08;
+            position: absolute;
+            top: 60px;
+            left: 40px;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--color-navy);
+            position: relative;
+            z-index: 1;
+            padding-left: 20px;
+            border-left: 6px solid var(--color-coral);
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-v2 {
+            background: var(--color-cream);
+        }
+
+        .about-grid-v2 {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 80px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text-v2 p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--color-charcoal);
+            margin-bottom: 25px;
+        }
+
+        .skills-card-v2 {
+            background: linear-gradient(135deg, var(--color-teal) 0%, #45b7aa 100%);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.3);
+            color: white;
+            position: sticky;
+            top: 40px;
+        }
+
+        .skills-card-v2 h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .skill-item-v2 {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .skill-item-v2:hover {
+            transform: translateX(10px);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .software-list-v2 {
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .software-list-v2 h4 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+        }
+
+        .software-tag {
+            display: inline-block;
+            background: var(--color-mustard);
+            color: var(--color-navy);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+
+        /* ========== PROJECTS GALLERY ========== */
+        .projects-v2 {
+            background: var(--color-lavender);
+        }
+
+        .projects-intro-v2 {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--color-charcoal);
+            margin-bottom: 60px;
+            max-width: 800px;
+            font-weight: 400;
+        }
+
+        .gallery-container-v2 {
+            position: relative;
+        }
+
+        .gallery-main-v2 {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-main-v2:hover {
+            transform: translateY(-10px) rotate(0.5deg);
+        }
+
+        /* ========== LOGO DESIGN ========== */
+        .logos-v2 {
+            background: var(--color-navy);
+            color: white;
+            overflow: hidden;
+        }
+
+        .logos-v2 .section-title {
+            color: white;
+            border-left-color: var(--color-teal);
+        }
+
+        .logos-intro-v2 {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 50px;
+            max-width: 750px;
+        }
+
+        .logo-showcase-v2 {
+            background: white;
+            padding: 50px;
+            border-radius: 40px;
+            transform: rotate(-1deg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        }
+
+        .logo-showcase-v2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        /* ========== BRANDING CASE STUDY ========== */
+        .branding-v2 {
+            background: linear-gradient(to bottom, var(--color-cream) 0%, #fff 100%);
+        }
+
+        .branding-layout-v2 {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .branding-story-v2 h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-coral);
+            margin-bottom: 25px;
+        }
+
+        .branding-story-v2 p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--color-charcoal);
+            margin-bottom: 20px;
+        }
+
+        .mockup-frame-v2 {
+            background: var(--color-mustard);
+            padding: 30px;
+            border-radius: 30px;
+            transform: rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .mockup-frame-v2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* ========== SOCIAL MEDIA & PRINT ========== */
+        .social-media-v2 {
+            background: var(--color-coral);
+            color: white;
+        }
+
+        .social-media-v2 .section-title {
+            color: white;
+            border-left-color: var(--color-navy);
+        }
+
+        .content-split-v2 {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .content-narrative-v2 p {
+            font-size: 1.08rem;
+            line-height: 1.95;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 22px;
+        }
+
+        .visual-panel-v2 {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .visual-panel-v2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .print-design-v2 {
+            background: var(--color-teal);
+            color: white;
+        }
+
+        .print-design-v2 .section-title {
+            color: white;
+            border-left-color: var(--color-navy);
+        }
+
+        /* ========== CLIENTS SHOWCASE ========== */
+        .clients-v2 {
+            background: var(--color-charcoal);
+            color: white;
+        }
+
+        .clients-v2 .section-title {
+            color: white;
+            border-left-color: var(--color-mustard);
+        }
+
+        .clients-intro-v2 {
+            font-size: 1.12rem;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 50px;
+            max-width: 850px;
+        }
+
+        .client-logos-display-v2 {
+            background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+            padding: 60px;
+            border-radius: 35px;
+            border: 3px solid rgba(255,230,109,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-logos-display-v2::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,230,109,0.05) 0%, transparent 70%);
+        }
+
+        .client-logos-display-v2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-v2 {
+            background: linear-gradient(135deg, var(--color-mustard) 0%, #ffd93d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-v2::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--color-coral);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .contact-v2 .section-title {
+            color: var(--color-navy);
+            border-left-color: var(--color-navy);
+        }
+
+        .contact-layout-v2 {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 70px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-message-v2 p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--color-navy);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .contact-details-v2 {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .contact-details-v2 h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 28px;
+        }
+
+        .contact-entry-v2 {
+            margin: 20px 0;
+            padding: 15px 0;
+            border-bottom: 2px solid #f0f0f0;
+            font-size: 1.1rem;
+            color: var(--color-charcoal);
+        }
+
+        .contact-entry-v2:last-child {
+            border-bottom: none;
+        }
+
+        .contact-entry-v2 strong {
+            color: var(--color-coral);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1100px) {
+            .hero-content-v2,
+            .about-grid-v2,
+            .branding-layout-v2,
+            .content-split-v2,
+            .contact-layout-v2 {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-text-v2 h1 {
+                font-size: 4rem;
+            }
+
+            .skills-card-v2 {
+                position: static;
+            }
+
+            .logo-showcase-v2,
+            .mockup-frame-v2 {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 25px;
+            }
+
+            .section-number {
+                font-size: 5rem;
+                top: 40px;
+                left: 25px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-text-v2 h1 {
+                font-size: 3rem;
+            }
+
+            .hero-image-v2 img {
+                border-radius: 150px 150px 20px 20px;
+            }
+
+            .floating-badge {
+                bottom: -10px;
+                right: -10px;
+                padding: 15px 22px;
+                font-size: 0.95rem;
+            }
+
+            .skills-card-v2,
+            .logo-showcase-v2,
+            .client-logos-display-v2,
+            .contact-details-v2 {
+                padding: 30px;
+            }
+        }
+
+        /* ========== SMOOTH SCROLL & ANIMATIONS ========== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Subtle parallax-like effect on scroll */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .floating-badge {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HERO SECTION V2 ========== -->
+    <section class="hero-v2">
+        <div class="hero-content-v2">
+            <div class="hero-text-v2">
+                <h1>Danny<br>Symon</h1>
+                <div class="tagline">Graphic Designer</div>
+                <p>
+                    A passionate creative professional based in Lilongwe, Malawi. Specializing in branding, social media design, marketing campaigns, and visual identity solutions since 2016.
+                </p>
+            </div>
+            <div class="hero-image-v2">
+                <img src="https://qc4n.bigmodel.cn/548bePadQ_cropped.png?UCloudPublicKey=TOKEN_3f4277c6-f8d6-41a9-968b-dbfa0994d483&Expires=1808462831&Signature=UpMCl9gF7sgx2xdqcdYOPBCosoo%3D" alt="Danny Symon Portrait">
+                <div class="floating-badge">✓ Available for Projects</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ME V2 ========== -->
+    <section class="about-v2" id="about">
+        <span class="section-number">01</span>
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+        </div>
+        
+        <div class="about-grid-v2">
+            <div class="about-text-v2">
+                <p>
+                    My name is Danny Symon, a passionate Graphic Designer based in Lilongwe, Malawi. I have been working in the creative industry since 2016, helping brands, artists, and businesses communicate their ideas through strong and impactful visual design.
+                </p>
+                <p>
+                    I specialize in creating high-quality graphics for branding, social media, marketing, and digital campaigns. Over the years, I have developed strong skills in Adobe Photoshop, as well as experience using Adobe Illustrator and CorelDRAW to deliver professional and creative design solutions.
+                </p>
+                <p>
+                    Currently, I work as a Graphic Designer at Hustle Media Production, where I create visual content for brands and businesses across different industries. My goal is always to combine creativity with strategy to produce designs that not only look good but also communicate effectively.
+                </p>
+                <p>
+                    Beyond my professional work, I continue to explore new ideas, trends, and creative techniques to keep improving my craft and delivering designs that make a lasting impression.
+                </p>
+            </div>
+            
+            <div class="skills-card-v2">
+                <h3>Core Skills</h3>
+                <div class="skill-item-v2">Graphic Design</div>
+                <div class="skill-item-v2">Social Media Design</div>
+                <div class="skill-item-v2">Branding & Visual Identity</div>
+                <div class="skill-item-v2">Marketing & Advertising</div>
+                <div class="skill-item-v2">Photo Editing & Manipulation</div>
+                <div class="skill-item-v2">Print Design</div>
+                <div class="skill-item-v2">Layout & Composition</div>
+                <div class="skill-item-v2">Creative Concept Development</div>
+                
+                <div class="software-list-v2">
+                    <h4>Software Proficiency</h4>
+                    <span class="software-tag">Photoshop – Advanced</span>
+                    <span class="software-tag">Illustrator – Intermediate</span>
+                    <span class="software-tag">InDesign – Intermediate</span>
+                    <span class="software-tag">CorelDRAW – Intermediate</span>
+                    <span class="software-tag">Canva – Intermediate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MY PROJECTS V2 ========== -->
+    <section class="projects-v2" id="projects">
+        <span class="section-number">02</span>
+        <div class="section-header">
+            <h2 class="section-title">My Projects</h2>
+        </div>
+        
+        <p class="projects-intro-v2">
+            A curated selection of my design work across various categories including event promotions, brand campaigns, social media content, logo designs, and print materials. Each project demonstrates my ability to deliver creative solutions tailored to specific client needs and target audiences.
+        </p>
+        
+        <div class="gallery-container-v2">
+            <img src="https://qc4n.bigmodel.cn/2201dH9Fz_cropped.png?UCloudPublicKey=TOKEN_3f4277c6-f8d6-41a9-968b-dbfa0994d483&Expires=1808462833&Signature=zC7lMAXtL77NpA6IxuJcStALjNQ%3D" alt="Project Portfolio Gallery" class="gallery-main-v2">
+        </div>
+    </section>
+
+    <!-- ========== LOGO DESIGN V2 ========== -->
+    <section class="logos-v2" id="logos">
+        <span class="section-number" style="opacity: 0.04;">03</span>
+        <div class="section-header">
+            <h2 class="section-title">Logo Design</h2>
+        </div>
+        
+        <p class="logos-intro-v2">
+            A logo is a visual identity element designed to represent a brand, business, or individual in a unique and memorable way. It combines typography, symbols, shapes, and color choices to communicate the brand's values, personality, and purpose. Each logo is carefully crafted to ensure it is clean, versatile, and impactful across both digital and print platforms, helping to build strong brand recognition and a professional image.
+        </p>
+        
+        <p class="logos-intro-v2">
+            Featured logo projects include work for delivery services, furniture companies, entertainment venues, construction unions, gaming brands, media production houses, agricultural chains, retail businesses, and more.
+        </p>
+        
+        <div class="logo-showcase-v2">
+            <img src="https://qc4n.bigmodel.cn/b8bfeXO84_cropped.png?UCloudPublicKey=TOKEN_3f4277c6-f8d6-41a9-968b-dbfa0994d483&Expires=1808462810&Signature=176kTaz1oLpmNeIlXwY9t3xt8tI%3D" alt="Logo Design Collection">
+        </div>
+    </section>
+
+    <!-- ========== BRANDING V2 ========== -->
+    <section class="branding-v2" id="branding">
+        <span class="section-number" style="opacity: 0.06;">04</span>
+        <div class="section-header">
+            <h2 class="section-title">Branding & Visual Identity</h2>
+        </div>
+        
+        <div class="branding-layout-v2">
+            <div class="branding-story-v2">
+                <h3>Zifika Express Branding Project</h3>
+                <p>
+                    This branding project was created for Zifika Express, a delivery and errand service brand focused on speed, reliability, and convenience. The logo creatively combines the letter "Z" with a delivery van and motion lines to visually communicate fast delivery and efficient service.
+                </p>
+                <p>
+                    The green color represents growth, trust, freshness, and reliability, while the bold typography gives the brand a strong and modern identity. The overall design reflects a professional doorstep delivery service that is easy to recognize and memorable.
+                </p>
+                <p>
+                    The complete brand identity system includes applications across tote bags, mugs, caps, water bottles, notebooks, pens, and coasters, demonstrating versatility and consistency across all touchpoints.
+                </p>
+            </div>
+            
+            <div class="mockup-frame-v2">
+                <img src="https://qc4n.bigmodel.cn/abe70kJVn_cropped.png?UCloudPublicKey=TOKEN_3f4277c6-f8d6-41a9-968b-dbfa0994d483&Expires=1808462836&Signature=4aqwSq3Qo0ag2RKZglaYc92%2B2sI%3D" alt="Zifika Express Branding Mockups">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL MEDIA DESIGNS V2 ========== -->
+    <section class="social-media-v2" id="social-media">
+        <span class="section-number" style="opacity: 0.08; color: white;">05</span>
+        <div class="section-header">
+            <h2 class="section-title">Social Media Designs</h2>
+        </div>
+        
+        <div class="content-split-v2">
+            <div class="content-narrative-v2">
+                <p>
+                    This section showcases my creative work for social media platforms, including promotional flyers, campaign posts, engagement content, event graphics, and branded visuals. My designs are created to capture attention, strengthen brand identity, and increase audience engagement across platforms such as Facebook, Instagram, X, and other digital channels.
+                </p>
+                <p>
+                    Each design focuses on clear messaging, modern visuals, and strategic content presentation to help brands connect effectively with their target audience and achieve their marketing goals.
+                </p>
+                <p>
+                    Featured work includes social media campaigns for The Blackheath House restaurant, showcasing their food offerings, customer reviews, special events, and seasonal promotions.
+                </p>
+            </div>
+            
+            <div class="visual-panel-v2">
+                <img src="https://qc4n.bigmodel.cn/cb1f3oALi_cropped.png?UCloudPublicKey=TOKEN_3f4277c6-f8d6-41a9-968b-dbfa0994d483&Expires=1808462804&Signature=uUZ8rSnF3SSkYMxnUF%2Bl%2Fh3xfmA%3D" alt="Social Media Design Examples">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRINT DESIGN V2 ========== -->
+    <section class="print-design-v2" id="print">
+        <span class="section-number" style="opacity: 0.08; color: white;">06</span>
+        <div class="section-header">
+            <h2 class="section-title">Print Design</h2>
+        </div>
+        
+        <div class="content-split-v2">
+            <div class="content-narrative-v2">
+                <p>
+                    This section highlights my expertise in creating high-quality print materials designed for both branding and marketing purposes. It includes posters, flyers, banners, roll-ups, business cards, brochures, and other promotional materials.
+                </p>
+                <p>
+                    Each design is developed with strong visual balance, clear typography, and print-ready specifications to ensure professional output. My focus is on delivering impactful designs that effectively communicate the brand message while maintaining consistency, clarity, and a polished appearance across all physical formats.
+                </p>
+                <p>
+                    Featured print projects include event posters, restaurant menus, promotional flyers, and marketing collateral for various clients in hospitality, entertainment, and business sectors.
+                </p>
+            </div>
+            
+            <div class="visual-panel-v2">
+                <img src="https://qc4n.bigmodel.cn/2bd75h0dK_cropped.png?UCloudPublicKey=TOKEN_3f4277c6-f8d6-41a9-968b-dbfa0994d483&Expires=1808462807&Signature=m8ynHAIm1%2BAabZO225I9SiYjXZo%3D" alt="Print Design Examples">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CLIENTS V2 ========== -->
+    <section class="clients-v2" id="clients">
+        <span class="section-number" style="opacity: 0.06; color: white;">07</span>
+        <div class="section-header">
+            <h2 class="section-title">Clients & Brands Worked With</h2>
+        </div>
+        
+        <p class="clients-intro-v2">
+            This section showcases the brands, businesses, and organizations I have had the opportunity to work with throughout my design journey. My experience includes delivering creative solutions in branding, logo design, social media content, print design, and promotional materials across different industries.
+        </p>
+        
+        <p class="clients-intro-v2">
+            Working with a variety of clients has strengthened my ability to adapt to different brand identities, target audiences, and project goals while consistently delivering high-quality visual designs.
+        </p>
+        
+        <p class="clients-intro-v2">
+            Client industries include: media production, logistics/delivery, tourism/travel, agriculture, hospitality, gaming/entertainment, retail, consulting, and more.
+        </p>
+        
+        <div class="client-logos-display-v2">
+            <img src="https://qc4n.bigmodel.cn/96bf0Hhh3_cropped.png?UCloudPublicKey=TOKEN_3f4277c6-f8d6-41a9-968b-dbfa0994d483&Expires=1808462813&Signature=gYjNsSbiFUDWx78fhjQXJ9k80%2F0%3D" alt="Client Logos Collection">
+        </div>
+    </section>
+
+    <!-- ========== CONTACT V2 ========== -->
+    <section class="contact-v2" id="contact">
+        <span class="section-number" style="opacity: 0.08;">08</span>
+        <div class="section-header">
+            <h2 class="section-title">Contact / Hire Me</h2>
+        </div>
+        
+        <div class="contact-layout-v2">
+            <div class="contact-message-v2">
+                <p>
+                    Thank you for taking the time to explore my portfolio. I am always open to new creative opportunities, collaborations, and exciting design projects. Whether you need branding, logo design, social media content, print materials, or full visual identity solutions, I am ready to bring your ideas to life with professional and impactful designs.
+                </p>
+                <p>
+                    Let's work together to create something exceptional for your brand. I look forward to hearing about your next project!
+                </p>
+            </div>
+            
+            <div class="contact-details-v2">
+                <h3>Contact Information</h3>
+                <div class="contact-entry-v2">
+                    <strong>Primary Phone</strong>
+                    +265 997 711 624
+                </div>
+                <div class="contact-entry-v2">
+                    <strong>Secondary Phone</strong>
+                    +265 885 088 209
+                </div>
+                <div class="contact-entry-v2">
+                    <strong>Email Address</strong>
+                    dannysymon8@gmail.com
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
